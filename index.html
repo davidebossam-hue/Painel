@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Debossam Panel</title>
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{
+  margin:0;background:#0b0f0f;color:#fff;
+  display:flex;justify-content:center;align-items:center;height:100vh;
+}
+.panel{
+  width:330px;background:#111;
+  border-radius:14px;padding:14px;
+  box-shadow:0 0 20px #00ffd555;
+}
+.header{
+  text-align:center;margin-bottom:10px;
+}
+.header h2{
+  margin:0;color:#00ffd5;
+  text-shadow:0 0 10px #00ffd5;
+}
+.header span{
+  font-size:12px;color:#aaa;
+}
+.section{margin-top:12px}
+.option{
+  display:flex;justify-content:space-between;align-items:center;
+  background:#181818;padding:10px;border-radius:8px;margin:6px 0;
+}
+.switch{
+  width:42px;height:22px;border-radius:22px;
+  background:#333;position:relative;cursor:pointer;
+}
+.switch::after{
+  content:"";width:18px;height:18px;border-radius:50%;
+  background:#aaa;position:absolute;top:2px;left:2px;
+  transition:.2s;
+}
+.switch.on{background:#00ffd5}
+.switch.on::after{left:22px;background:#000}
+.slider{
+  width:100%;
+}
+.value{font-size:12px;color:#00ffd5;text-align:right}
+.footer{
+  margin-top:10px;font-size:11px;color:#777;text-align:center
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+  <div class="header">
+    <h2>Debossam Demo</h2>
+    <span>Visual Panel • Demo</span>
+  </div>
+
+  <div class="section">
+    <div class="option">
+      <span>ESP Visual</span>
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+    <div class="option">
+      <span>Aimbot Visual</span>
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+    <div class="option">
+      <span>Snapline</span>
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+    <div class="option">
+      <span>Mostrar Vida</span>
+      <div class="switch" onclick="toggle(this)"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <span>FOV</span>
+    <input class="slider" type="range" min="30" max="180" value="90"
+      oninput="document.getElementById('fov').innerText=this.value">
+    <div class="value">FOV: <span id="fov">90</span></div>
+  </div>
+
+  <div class="footer">
+    Status: Visual Only • No Hack
+  </div>
+</div>
+
+<script>
+function toggle(el){
+  el.classList.toggle("on");
+}
+</script>
+
+</body>
+</html>
